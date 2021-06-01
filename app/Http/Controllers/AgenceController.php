@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class AgenceController extends Controller
 {
+
+    public function index()
+    {
+        //
+        $agences = Agence::all();
+        return  response()->json($agences, 200, ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
+    }
+
     public function upload(Request $request)
     {
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\VilleController;
 use App\Http\Controllers\AgenceController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\VoyageController;
+use App\Http\Controllers\Authcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/voyage', [VoyageController::class, 'index']);
 Route::get('/ville', [VilleController::class, 'index']);
-Route::get('/vill', [VilleController::class, 'me']);
 
-Route::post('upload-agence', [AgenceController::class, 'upload']);
+
+
+Route::post('agence/upload', [AgenceController::class, 'upload']);
 Route::get('voyage/search/{id}', [VoyageController::class, 'show']);
-Route::post('client', [ClientController::class, 'addClient']);
+
+
+// AUTHENTIFICATION
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/login', [AuthController::class, 'login']);

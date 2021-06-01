@@ -47,8 +47,8 @@ class VoyageController extends Controller
             ->join('villes', 'villes.id', '=', 'voyages.ville_id')
             ->join('agences', 'agences.id', '=', 'voyages.agence_id')
             ->join('places', 'places.id', '=', 'voyages.places_id')
-            ->select('voyages.titre', 'voyages.depart', 'voyages.ligne-fr', 'voyages.ligne-ar', 'voyages.active', 'villes.nom_fr', 'villes.nom_ar', 'villes.prix', 'agences.nom_fr', 'agences.nom_ar', 'agences.path')
-            ->where('voyages.ligne-fr', 'like', '%' . $name . '%')
+            ->select('voyages.titre', 'voyages.depart', 'voyages.ligne_fr', 'voyages.ligne_ar', 'voyages.active', 'villes.nom_fr', 'villes.nom_ar', 'villes.prix', 'agences.nom_fr', 'agences.nom_ar', 'agences.path')
+            ->where('voyages.ligne_fr', 'like', '%' . $name . '%')
             ->where('voyages.active', '=', '1')
 
 

@@ -16,7 +16,7 @@ class CreateReclamationsTable extends Migration
         Schema::create('reclamations', function (Blueprint $table) {
             $table->id();
             $table->text('reclation');
-            $table->foreignId('client_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

@@ -15,12 +15,14 @@ class CreateVoyagesTable extends Migration
     {
         Schema::create('voyages', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
             $table->foreignId('agence_id')->constrained();
-            $table->string('depart');
             $table->foreignId('ville_id')->constrained();
-            $table->string('ligne-fr');
-            $table->string('ligne-ar');
-            $table->boolean('active');
+            $table->foreignId('places_id')->constrained();
+            $table->string('depart');
+            $table->string('ligne_fr');
+            $table->string('ligne_ar');
+            $table->boolean('active')->default(true);
         });
     }
 
